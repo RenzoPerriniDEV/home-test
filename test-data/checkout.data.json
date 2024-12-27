@@ -1,0 +1,19 @@
+{
+    "checkout": {
+        "billingAdress": {
+            "fullName": "Renzo Perrini",
+            "email": "renzoperrini@gmail.com",
+            "address": "Av. San martin 1234",
+            "city": "Godoy Cruz",
+            "state": "Mendoza",
+            "zip": "5501"
+        },
+        "paymentInfo": {
+            "nameOnCard": "Perrini Renzo C",
+            "creditCardNumber": "4111 1111 1111 1111",
+            "expMonth": "September",
+            "expYear": "2030",
+            "cvv": "433"
+        }    
+    }
+}
