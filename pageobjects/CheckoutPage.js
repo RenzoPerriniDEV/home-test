@@ -73,14 +73,20 @@ class CheckoutPage {
       await this.page.click(this.continueSubmit);
     }
 
-    // Check cart total 
-    async getCartTotal() {
+    // Check total for all products in the cart
+    async getTotalSumOfProducts() {
       const prices = await this.page.$$eval(this.productsPrice , spans => {
         return spans.map(span => {
           return parseFloat(span.textContent.replace('$', '').trim());
         });
       });
       return prices.reduce((sum, price) => sum + price, 0);      
-    }      
+    }  
+    
+    // Get the total displayed in the cart
+    async getTotalDisplayed() {
+      const totalCartDisplayed = await this.page.locator(this.cartTotal).textContent();
+      return parseFloat(totalCartDisplayed.replace('$', '').trim());
+    }
   }  
   export default CheckoutPage;

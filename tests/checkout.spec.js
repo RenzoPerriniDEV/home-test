@@ -44,11 +44,10 @@ test.describe("Checkout suite", () => {
 
     test("Cart Total Test", async ({ checkoutPage, page }) => {
         // Arrange
-        const totalCart = await checkoutPage.getCartTotal();
-        const expectedTotalCart = await page.locator(checkoutPage.cartTotal).textContent();
-        const expectedPrice = parseFloat(expectedTotalCart.replace('$', '').trim());
+        const totalOfAllProducts = await checkoutPage.getTotalSumOfProducts();
+        const totalCartDisplayed = await checkoutPage.getTotalDisplayed();
             
         // Assert
-        expect(totalCart).toBe(expectedPrice);
+        expect(totalOfAllProducts).toBe(totalCartDisplayed);
     });    
 });
